@@ -4,6 +4,6 @@
         android:id="@+id/home"
         android:icon="@drawable/ic_round_home_24"
         android:title="@string/home" />
-    <item android:id="@+id/fav" android:icon="@drawable/ic_round_favorite_border_24" android:title="@string/fav"/>
+    <item android:id="@+id/favorite" android:icon="@drawable/ic_round_favorite_border_24" android:title="@string/fav"/>
     <item android:id="@+id/profile" android:icon="@drawable/ic_round_person_24" android:title="@string/profile"/>
 </menu>
