@@ -2,6 +2,8 @@
     <!-- Base application theme. -->
     <style name="Theme.Tex" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
+
+
         <item name="colorPrimary">@color/blueWhale</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
@@ -34,6 +36,7 @@
         <item name="android:lineSpacingExtra">6dp</item>
         <item name="android:includeFontPadding">false</item>
 
-
     </style>
+
 </resources>
+

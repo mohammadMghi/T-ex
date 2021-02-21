@@ -23,7 +23,13 @@ class HomeFragment : TexFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        homeViewModel.packageLiveData.observe(this){
+        setProgressIndicator(true)
+
+        homeViewModel.packageProgressBarLiveData.observe(viewLifecycleOwner){
+            setProgressIndicator(it)
+        }
+
+        homeViewModel.packageLiveData.observe(viewLifecycleOwner){
             Log.i("HomeFragment", "onViewCreated: $it")
 
         }
