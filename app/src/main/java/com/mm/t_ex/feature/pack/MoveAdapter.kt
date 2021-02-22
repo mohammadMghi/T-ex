@@ -1,5 +1,6 @@
 package com.mm.t_ex.feature.pack
 
+import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -7,16 +8,23 @@ import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.facebook.drawee.backends.pipeline.Fresco
+import com.facebook.drawee.view.SimpleDraweeView
 
 import com.mm.t_ex.R
 import com.mm.t_ex.data.Move
 import com.squareup.picasso.Picasso
 
-class MoveAdapter(private val moves : List<Move>) : RecyclerView.Adapter<MoveAdapter.ViewHolder>() {
+class MoveAdapter() : RecyclerView.Adapter<MoveAdapter.ViewHolder>() {
 
+    var moves = ArrayList<Move>()
+    set(value) {
+        field = value
+        notifyDataSetChanged()
+    }
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        var imgView : ImageView = view.findViewById(R.id.imgMoveTv)
-        var title : TextView = view.findViewById(R.id.titleTv)
+        var imgView : SimpleDraweeView = view.findViewById(R.id.imgMoveTv)
+        var title : TextView = view.findViewById(R.id.moveTitle)
         var timeTv : TextView = view.findViewById(R.id.timeMoveTv)
     }
 
@@ -26,9 +34,9 @@ class MoveAdapter(private val moves : List<Move>) : RecyclerView.Adapter<MoveAda
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-         holder.title.setText(moves[position].title)
-         Picasso.get().load("http://10.0.2.2:8000/image/" + moves[position].file).into(holder.imgView)
-         holder.timeTv.text = moves[position].description
+          holder.title.text = moves[position].title
+          holder.imgView.setImageURI(Uri.parse("http://10.0.2.2:8000/image/" + moves[position].file).toString())
+          holder.timeTv.text = moves[position].duration.duration
     }
 
     override fun getItemCount(): Int = moves.size
