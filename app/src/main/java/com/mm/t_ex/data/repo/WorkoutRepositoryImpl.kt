@@ -10,7 +10,5 @@ import retrofit2.Response
 class WorkoutRepositoryImpl(private val workoutRemoteDataSource: WorkoutRemoteDataSource) : WorkoutRepository {
     override fun getWorkouts(workoutId: Int): Single<List<Workout>> = workoutRemoteDataSource.getWorkouts(workoutId)
 
-    override fun downloadFile(): Observable<Response<ResponseBody>> {
-        TODO("Not yet implemented")
-    }
+    override fun downloadFile(fileName: String): Observable<Response<ResponseBody>> = workoutRemoteDataSource.downloadFile(fileName)
 }

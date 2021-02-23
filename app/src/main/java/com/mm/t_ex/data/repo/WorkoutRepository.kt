@@ -9,5 +9,5 @@ import retrofit2.Response
 interface WorkoutRepository {
     fun getWorkouts(workoutId : Int) : Single<List<Workout>>
 
-    fun downloadFile() : Observable<Response<ResponseBody>>
+    fun downloadFile(fileName : String) : Observable<Response<ResponseBody>>
 }

@@ -10,8 +10,5 @@ import retrofit2.Response
 class WorkoutRemoteDataSource(val apiService: ApiService) : WorkoutDataSource {
     override fun getWorkouts(workoutId: Int): Single<List<Workout>>  = apiService.getWorkout(workoutId)
 
-    override fun downloadFile(): Observable<Response<ResponseBody>> {
-        TODO("Not yet implemented")
-    }
-
+    override fun downloadFile(file: String): Observable<Response<ResponseBody>> = apiService.downloadFile(file)
 }

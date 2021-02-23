@@ -10,34 +10,36 @@
         android:id="@+id/moveTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        tools:text="حرکت شماره یک"
+        android:layout_marginStart="16dp"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         app:layout_constraintBottom_toBottomOf="@+id/imgMoveTv"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imgMoveTv"
         app:layout_constraintTop_toTopOf="@+id/imgMoveTv"
-        app:layout_constraintVertical_bias="0.181" />
+        app:layout_constraintVertical_bias="0.17"
+        tools:text="حرکت شماره یک" />
 
     <com.facebook.drawee.view.SimpleDraweeView
         android:id="@+id/imgMoveTv"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="32dp"
         android:layout_marginBottom="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
         fresco:placeholderImage="@drawable/test_img"
         fresco:roundedCornerRadius="15dp" />
 
     <TextView
-        android:id="@+id/timeMoveTv"
+        android:id="@+id/timePackageTv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="@style/TextAppearance.AppCompat.Caption"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="12dp"
         android:text="00:20"
+        android:textAppearance="@style/TextAppearance.AppCompat.Caption"
         app:layout_constraintStart_toStartOf="@+id/moveTitle"
         app:layout_constraintTop_toBottomOf="@+id/moveTitle" />
 
