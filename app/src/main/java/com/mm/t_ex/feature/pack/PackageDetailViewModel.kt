@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.util.Log
 import android.util.Pair
 import androidx.lifecycle.MutableLiveData
+import com.mm.t_ex.common.BASE_PATH
 import com.mm.t_ex.common.EXTRA_KEY_DATA
 import com.mm.t_ex.common.Helper
 import com.mm.t_ex.common.TexViewModel
@@ -16,11 +17,12 @@ import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
 import java.io.*
 
-const val basePath = "/data/data/com.mm.t_ex/cache/"
+
 class PackageDetailViewModel(bundle: Bundle ,val workoutRepository: WorkoutRepository) : TexViewModel() {
     val packageLiveData = MutableLiveData<Package>()
     val workoutLiveData = MutableLiveData<List<Workout>>()
     val progressBarLiveData = MutableLiveData<Int>()
+    val onCompleteLiveData = MutableLiveData<Boolean>()
     init {
         packageLiveData.value = bundle.getParcelable(EXTRA_KEY_DATA)
 
@@ -50,7 +52,7 @@ class PackageDetailViewModel(bundle: Bundle ,val workoutRepository: WorkoutRepos
         flatMap {
             var inputStream : InputStream? = null
             var outputStream : OutputStream? = null
-            val file = File(basePath, packageLiveData.value!!.compressed_file)
+            val file = File(BASE_PATH, packageLiveData.value!!.compressed_file)
             try {
                 inputStream = it.body()?.byteStream()
                 outputStream = FileOutputStream(file)
@@ -94,8 +96,8 @@ class PackageDetailViewModel(bundle: Bundle ,val workoutRepository: WorkoutRepos
                 }
 
                 override fun onComplete() {
-                    Log.d("downloadZipFile", "onCompleted")
-                    Helper.unpackZip(basePath,packageLiveData.value!!.compressed_file)
+                    onCompleteLiveData.value = true
+                    Helper.unpackZip(BASE_PATH,packageLiveData.value!!.compressed_file)
                 }
 
             })

@@ -11,6 +11,7 @@ import com.mm.t_ex.R
 import io.reactivex.disposables.CompositeDisposable
 
 const val EXTRA_KEY_DATA = "data"
+const val BASE_PATH = "/data/data/com.mm.t_ex/cache/"
 abstract class TexFragment:Fragment(), TexView{
     override val rootView: CoordinatorLayout?
         get() = view as CoordinatorLayout

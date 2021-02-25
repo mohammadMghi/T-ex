@@ -12,6 +12,7 @@ import com.mm.t_ex.data.repo.source.PackageRemoteDataSource
 import com.mm.t_ex.data.repo.source.WorkoutRemoteDataSource
 import com.mm.t_ex.feature.home.HomeViewModel
 import com.mm.t_ex.feature.pack.PackageDetailViewModel
+import com.mm.t_ex.feature.workout.WorkoutViewModel
 import com.mm.t_ex.services.http.ApiService
 import com.mm.t_ex.services.http.createApiServiceInstance
 import io.reactivex.Single
@@ -38,6 +39,7 @@ class App:Application() {
 
             viewModel { HomeViewModel(get()) }
             viewModel { (bundle : Bundle)-> PackageDetailViewModel(bundle , get()) }
+            viewModel { (bundle : Bundle)-> WorkoutViewModel(bundle) }
         }
 
         startKoin {

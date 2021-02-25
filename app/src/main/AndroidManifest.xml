@@ -13,7 +13,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Tex"
         android:usesCleartextTraffic="true">
-        <activity android:name=".feature.pack.PackageDetailActivity"></activity>
+        <activity android:name=".feature.workout.WorkoutSlideActivity"></activity>
+        <activity android:name=".feature.pack.PackageDetailActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
